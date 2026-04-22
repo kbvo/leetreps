@@ -44,6 +44,8 @@ export type ProblemMinAggregateOutputType = {
   scheduledDate: Date | null
   status: $Enums.ProblemStatus | null
   pulledForDate: Date | null
+  lastAttemptedAt: Date | null
+  lastResult: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -58,6 +60,8 @@ export type ProblemMaxAggregateOutputType = {
   scheduledDate: Date | null
   status: $Enums.ProblemStatus | null
   pulledForDate: Date | null
+  lastAttemptedAt: Date | null
+  lastResult: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -72,6 +76,8 @@ export type ProblemCountAggregateOutputType = {
   scheduledDate: number
   status: number
   pulledForDate: number
+  lastAttemptedAt: number
+  lastResult: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -96,6 +102,8 @@ export type ProblemMinAggregateInputType = {
   scheduledDate?: true
   status?: true
   pulledForDate?: true
+  lastAttemptedAt?: true
+  lastResult?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -110,6 +118,8 @@ export type ProblemMaxAggregateInputType = {
   scheduledDate?: true
   status?: true
   pulledForDate?: true
+  lastAttemptedAt?: true
+  lastResult?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -124,6 +134,8 @@ export type ProblemCountAggregateInputType = {
   scheduledDate?: true
   status?: true
   pulledForDate?: true
+  lastAttemptedAt?: true
+  lastResult?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -225,6 +237,8 @@ export type ProblemGroupByOutputType = {
   scheduledDate: Date
   status: $Enums.ProblemStatus
   pulledForDate: Date | null
+  lastAttemptedAt: Date | null
+  lastResult: string | null
   createdAt: Date
   updatedAt: Date
   _count: ProblemCountAggregateOutputType | null
@@ -262,6 +276,8 @@ export type ProblemWhereInput = {
   scheduledDate?: Prisma.DateTimeFilter<"Problem"> | Date | string
   status?: Prisma.EnumProblemStatusFilter<"Problem"> | $Enums.ProblemStatus
   pulledForDate?: Prisma.DateTimeNullableFilter<"Problem"> | Date | string | null
+  lastAttemptedAt?: Prisma.DateTimeNullableFilter<"Problem"> | Date | string | null
+  lastResult?: Prisma.StringNullableFilter<"Problem"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Problem"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Problem"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -277,6 +293,8 @@ export type ProblemOrderByWithRelationInput = {
   scheduledDate?: Prisma.SortOrder
   status?: Prisma.SortOrder
   pulledForDate?: Prisma.SortOrderInput | Prisma.SortOrder
+  lastAttemptedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  lastResult?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
@@ -295,6 +313,8 @@ export type ProblemWhereUniqueInput = Prisma.AtLeast<{
   scheduledDate?: Prisma.DateTimeFilter<"Problem"> | Date | string
   status?: Prisma.EnumProblemStatusFilter<"Problem"> | $Enums.ProblemStatus
   pulledForDate?: Prisma.DateTimeNullableFilter<"Problem"> | Date | string | null
+  lastAttemptedAt?: Prisma.DateTimeNullableFilter<"Problem"> | Date | string | null
+  lastResult?: Prisma.StringNullableFilter<"Problem"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Problem"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Problem"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -310,6 +330,8 @@ export type ProblemOrderByWithAggregationInput = {
   scheduledDate?: Prisma.SortOrder
   status?: Prisma.SortOrder
   pulledForDate?: Prisma.SortOrderInput | Prisma.SortOrder
+  lastAttemptedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  lastResult?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.ProblemCountOrderByAggregateInput
@@ -332,6 +354,8 @@ export type ProblemScalarWhereWithAggregatesInput = {
   scheduledDate?: Prisma.DateTimeWithAggregatesFilter<"Problem"> | Date | string
   status?: Prisma.EnumProblemStatusWithAggregatesFilter<"Problem"> | $Enums.ProblemStatus
   pulledForDate?: Prisma.DateTimeNullableWithAggregatesFilter<"Problem"> | Date | string | null
+  lastAttemptedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Problem"> | Date | string | null
+  lastResult?: Prisma.StringNullableWithAggregatesFilter<"Problem"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Problem"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Problem"> | Date | string
 }
@@ -345,6 +369,8 @@ export type ProblemCreateInput = {
   scheduledDate: Date | string
   status?: $Enums.ProblemStatus
   pulledForDate?: Date | string | null
+  lastAttemptedAt?: Date | string | null
+  lastResult?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutProblemsInput
@@ -360,6 +386,8 @@ export type ProblemUncheckedCreateInput = {
   scheduledDate: Date | string
   status?: $Enums.ProblemStatus
   pulledForDate?: Date | string | null
+  lastAttemptedAt?: Date | string | null
+  lastResult?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -373,6 +401,8 @@ export type ProblemUpdateInput = {
   scheduledDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumProblemStatusFieldUpdateOperationsInput | $Enums.ProblemStatus
   pulledForDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastAttemptedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastResult?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutProblemsNestedInput
@@ -388,6 +418,8 @@ export type ProblemUncheckedUpdateInput = {
   scheduledDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumProblemStatusFieldUpdateOperationsInput | $Enums.ProblemStatus
   pulledForDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastAttemptedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastResult?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -402,6 +434,8 @@ export type ProblemCreateManyInput = {
   scheduledDate: Date | string
   status?: $Enums.ProblemStatus
   pulledForDate?: Date | string | null
+  lastAttemptedAt?: Date | string | null
+  lastResult?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -415,6 +449,8 @@ export type ProblemUpdateManyMutationInput = {
   scheduledDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumProblemStatusFieldUpdateOperationsInput | $Enums.ProblemStatus
   pulledForDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastAttemptedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastResult?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -429,6 +465,8 @@ export type ProblemUncheckedUpdateManyInput = {
   scheduledDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumProblemStatusFieldUpdateOperationsInput | $Enums.ProblemStatus
   pulledForDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastAttemptedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastResult?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -453,6 +491,8 @@ export type ProblemCountOrderByAggregateInput = {
   scheduledDate?: Prisma.SortOrder
   status?: Prisma.SortOrder
   pulledForDate?: Prisma.SortOrder
+  lastAttemptedAt?: Prisma.SortOrder
+  lastResult?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -471,6 +511,8 @@ export type ProblemMaxOrderByAggregateInput = {
   scheduledDate?: Prisma.SortOrder
   status?: Prisma.SortOrder
   pulledForDate?: Prisma.SortOrder
+  lastAttemptedAt?: Prisma.SortOrder
+  lastResult?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -485,6 +527,8 @@ export type ProblemMinOrderByAggregateInput = {
   scheduledDate?: Prisma.SortOrder
   status?: Prisma.SortOrder
   pulledForDate?: Prisma.SortOrder
+  lastAttemptedAt?: Prisma.SortOrder
+  lastResult?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -560,6 +604,8 @@ export type ProblemCreateWithoutUserInput = {
   scheduledDate: Date | string
   status?: $Enums.ProblemStatus
   pulledForDate?: Date | string | null
+  lastAttemptedAt?: Date | string | null
+  lastResult?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -573,6 +619,8 @@ export type ProblemUncheckedCreateWithoutUserInput = {
   scheduledDate: Date | string
   status?: $Enums.ProblemStatus
   pulledForDate?: Date | string | null
+  lastAttemptedAt?: Date | string | null
+  lastResult?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -616,6 +664,8 @@ export type ProblemScalarWhereInput = {
   scheduledDate?: Prisma.DateTimeFilter<"Problem"> | Date | string
   status?: Prisma.EnumProblemStatusFilter<"Problem"> | $Enums.ProblemStatus
   pulledForDate?: Prisma.DateTimeNullableFilter<"Problem"> | Date | string | null
+  lastAttemptedAt?: Prisma.DateTimeNullableFilter<"Problem"> | Date | string | null
+  lastResult?: Prisma.StringNullableFilter<"Problem"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Problem"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Problem"> | Date | string
 }
@@ -629,6 +679,8 @@ export type ProblemCreateManyUserInput = {
   scheduledDate: Date | string
   status?: $Enums.ProblemStatus
   pulledForDate?: Date | string | null
+  lastAttemptedAt?: Date | string | null
+  lastResult?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -642,6 +694,8 @@ export type ProblemUpdateWithoutUserInput = {
   scheduledDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumProblemStatusFieldUpdateOperationsInput | $Enums.ProblemStatus
   pulledForDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastAttemptedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastResult?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -655,6 +709,8 @@ export type ProblemUncheckedUpdateWithoutUserInput = {
   scheduledDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumProblemStatusFieldUpdateOperationsInput | $Enums.ProblemStatus
   pulledForDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastAttemptedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastResult?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -668,6 +724,8 @@ export type ProblemUncheckedUpdateManyWithoutUserInput = {
   scheduledDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumProblemStatusFieldUpdateOperationsInput | $Enums.ProblemStatus
   pulledForDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastAttemptedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastResult?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -684,6 +742,8 @@ export type ProblemSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   scheduledDate?: boolean
   status?: boolean
   pulledForDate?: boolean
+  lastAttemptedAt?: boolean
+  lastResult?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -699,6 +759,8 @@ export type ProblemSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   scheduledDate?: boolean
   status?: boolean
   pulledForDate?: boolean
+  lastAttemptedAt?: boolean
+  lastResult?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -714,6 +776,8 @@ export type ProblemSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   scheduledDate?: boolean
   status?: boolean
   pulledForDate?: boolean
+  lastAttemptedAt?: boolean
+  lastResult?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -729,11 +793,13 @@ export type ProblemSelectScalar = {
   scheduledDate?: boolean
   status?: boolean
   pulledForDate?: boolean
+  lastAttemptedAt?: boolean
+  lastResult?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type ProblemOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "title" | "difficulty" | "intervalIndex" | "nextDueDate" | "scheduledDate" | "status" | "pulledForDate" | "createdAt" | "updatedAt", ExtArgs["result"]["problem"]>
+export type ProblemOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "title" | "difficulty" | "intervalIndex" | "nextDueDate" | "scheduledDate" | "status" | "pulledForDate" | "lastAttemptedAt" | "lastResult" | "createdAt" | "updatedAt", ExtArgs["result"]["problem"]>
 export type ProblemInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
@@ -759,6 +825,8 @@ export type $ProblemPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     scheduledDate: Date
     status: $Enums.ProblemStatus
     pulledForDate: Date | null
+    lastAttemptedAt: Date | null
+    lastResult: string | null
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["problem"]>
@@ -1194,6 +1262,8 @@ export interface ProblemFieldRefs {
   readonly scheduledDate: Prisma.FieldRef<"Problem", 'DateTime'>
   readonly status: Prisma.FieldRef<"Problem", 'ProblemStatus'>
   readonly pulledForDate: Prisma.FieldRef<"Problem", 'DateTime'>
+  readonly lastAttemptedAt: Prisma.FieldRef<"Problem", 'DateTime'>
+  readonly lastResult: Prisma.FieldRef<"Problem", 'String'>
   readonly createdAt: Prisma.FieldRef<"Problem", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Problem", 'DateTime'>
 }

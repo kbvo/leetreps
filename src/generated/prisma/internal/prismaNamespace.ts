@@ -823,6 +823,8 @@ export const UserScalarFieldEnum = {
   email: 'email',
   emailVerified: 'emailVerified',
   image: 'image',
+  username: 'username',
+  displayUsername: 'displayUsername',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -885,6 +887,8 @@ export const ProblemScalarFieldEnum = {
   scheduledDate: 'scheduledDate',
   status: 'status',
   pulledForDate: 'pulledForDate',
+  lastAttemptedAt: 'lastAttemptedAt',
+  lastResult: 'lastResult',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const

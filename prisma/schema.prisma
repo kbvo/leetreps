@@ -13,6 +13,8 @@ model User {
   email         String    @unique
   emailVerified Boolean   @default(false)
   image         String?
+  username        String?   @unique
+  displayUsername String?
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 
@@ -80,10 +82,12 @@ model Problem {
   intervalIndex Int           @default(0)
   nextDueDate   DateTime      @db.Date
   scheduledDate DateTime      @db.Date
-  status        ProblemStatus @default(ACTIVE)
-  pulledForDate DateTime?     @db.Date
-  createdAt     DateTime      @default(now())
-  updatedAt     DateTime      @updatedAt
+  status          ProblemStatus @default(ACTIVE)
+  pulledForDate   DateTime?     @db.Date
+  lastAttemptedAt DateTime?     @db.Date
+  lastResult      String?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
 
   @@index([userId, status])
   @@index([userId, scheduledDate])
